@@ -68,6 +68,20 @@ const overlay = {
   }
 }
 
+const boxVariants = {
+  initial: {
+    scale: 1
+  },
+  hover:(n : number) => ({
+    scale: 1.1,
+    transformOrigin:  
+      n ===1 ? 'right bottom' :
+      n === 2 ? 'left bottom'  :
+      n === 3 ? 'right top'  :
+      n === 4 ? 'left top' : 'center'
+  })
+}
+
 const button = {
   initial:{
     color:"rgb(0, 151, 230)", 
@@ -90,16 +104,11 @@ const App = () => {
         {
           [1,2,3,4].map(n => 
             <Box 
+              custom={n}
               key={n}
-              initial={{scale: 1}}
-              whileHover={{
-                scale: 1.1, 
-                transformOrigin: 
-                n ===1 ? 'right bottom' :
-                n === 2 ? 'left bottom'  :
-                n === 3 ? 'right top'  :
-                n === 4 ? 'left top' : 'center' 
-              }}
+              variants={boxVariants}
+              initial='initial'
+              whileHover='hover'
               layoutId={n + ''} 
               onClick={()=>setid(n+'')}>
               {n === 2 && (circleSwitch ? null : <Circle layoutId='circle'/>)}
