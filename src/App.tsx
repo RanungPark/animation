@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { AnimatePresence, motion, motionValue, useScroll, useTransform } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
 
 const Wrapper = styled(motion.div)`
   height: 100vh;
